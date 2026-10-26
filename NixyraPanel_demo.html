@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f472b6">
+<title>NixyraPanel · Administración</title>
+<style>
+:root{--pink:#f472b6;--pink2:#ec4899;--pale:#fff1f7;--lav:#f5f0ff;--ink:#39263a;--muted:#8a7487;--white:#fff;--line:#f3dce9;--shadow:0 12px 32px #b84f8517}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(155deg,#fff6fb 0%,#f8f3ff 52%,#fff 100%);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:980px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#ffffffd9;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);position:sticky;top:8px;backdrop-filter:blur(14px);z-index:2}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:45px;height:45px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#fb91c9,#b9a2ff);color:white;font-size:24px;box-shadow:0 7px 15px #e879b74d}.brand strong{display:block;font-size:17px}.brand small{color:var(--muted)}.pill{border:0;border-radius:999px;padding:9px 12px;background:#fce7f3;color:#a21caf;font-weight:700;font-size:12px}
+.hero{padding:28px 5px 20px}.eyebrow{color:#db2777;font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase}.hero h1{font-size:clamp(27px,5vw,40px);line-height:1.08;margin:9px 0}.hero p{color:var(--muted);margin:0;max-width:620px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:16px;margin:0 0 5px}.card p{font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 14px}.icon{height:42px;width:42px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:var(--pale);margin-bottom:13px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid #f8eaf1;font-size:13px}.toggle{appearance:none;width:39px;height:23px;background:#e8dce6;border-radius:99px;position:relative;flex:none;cursor:pointer;transition:.2s}.toggle:before{content:"";position:absolute;width:17px;height:17px;left:3px;top:3px;background:white;border-radius:50%;box-shadow:0 1px 4px #0002;transition:.2s}.toggle:checked{background:var(--pink2)}.toggle:checked:before{transform:translateX(16px)}
+.btn{border:0;border-radius:13px;padding:11px 14px;background:linear-gradient(135deg,#f472b6,#c084fc);color:white;font-weight:750;cursor:pointer;width:100%;margin-top:5px}.btn.secondary{background:#fff1f7;color:#be185d;border:1px solid #fbcfe8}.field{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;font-size:13px;color:var(--ink);background:#fffaff;margin:4px 0 10px;outline-color:#f472b6}.label{font-size:12px;font-weight:750;color:#78566f;display:block}.wide{grid-column:1/-1}.status{display:flex;align-items:center;gap:8px;font-size:12px;color:#7c6176}.dot{width:8px;height:8px;border-radius:50%;background:#f59e0b}.note{margin:16px 0;padding:14px 16px;border-radius:17px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:12px;line-height:1.55}.footer{text-align:center;color:#a38b9f;font-size:11px;padding:22px 0 10px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.wrap{padding:12px}.hero{padding-top:23px}.top{padding:12px}.wide{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="logo">🌙</div><div><strong>NixyraPanel</strong><small>Panel de administración</small></div></div>
+ <button class="pill" id="preview">MODO DEMO</button>
+</header>
+<section class="hero">
+ <div class="eyebrow">✦ Tu bot, tus reglas ✦</div>
+ <h1>¡Hola, administradora! <span>🎀</span></h1>
+ <p>Personaliza la experiencia de tu comunidad desde un solo lugar. Todo en español y con un estilo rosa, suave y brillante.</p>
+</section>
+<div class="grid">
+ <section class="card">
+  <div class="icon">📩</div><h2>Mensajes de bienvenida</h2><p>Prepara el mensaje que verán los nuevos miembros.</p>
+  <label class="label" for="welcome">Texto de bienvenida</label>
+  <textarea class="field" id="welcome" rows="4">🌸 ¡Bienvenido/a al grupo!\n📋 Lee las reglas y respeta a todos los miembros.\n💗 ¡Que disfrutes la comunidad!</textarea>
+  <div class="row"><span>Activar bienvenida</span><input class="toggle" type="checkbox" checked></div>
+  <button class="btn" data-save="welcome">Guardar mensaje</button>
+ </section>
+ <section class="card">
+  <div class="icon">📋</div><h2>Reglas y requisitos</h2><p>Escribe las normas que quieres mostrar a los miembros.</p>
+  <label class="label" for="rules">Reglas del grupo</label>
+  <textarea class="field" id="rules" rows="4">1. Respeta a los demás.\n2. No envíes spam ni publicidad.\n3. Sigue las indicaciones del equipo administrador.</textarea>
+  <button class="btn" data-save="rules">Guardar reglas</button>
+ </section>
+ <section class="card">
+  <div class="icon">🛡️</div><h2>Moderación</h2><p>Opciones visuales para definir la moderación de la comunidad.</p>
+  <div class="row"><span>Antispam</span><input class="toggle" type="checkbox" checked></div>
+  <div class="row"><span>Eliminar avisos de entrada/salida</span><input class="toggle" type="checkbox" checked></div>
+  <div class="row"><span>Advertir antes de expulsar</span><input class="toggle" type="checkbox"></div>
+  <button class="btn secondary" data-demo>Configurar moderación</button>
+ </section>
+ <section class="card">
+  <div class="icon">👥</div><h2>Usuarios</h2><p>Accesos rápidos para gestionar miembros (vista de demostración).</p>
+  <label class="label" for="user">Usuario de Telegram</label><input class="field" id="user" placeholder="@usuario">
+  <button class="btn secondary" data-demo>Buscar usuario</button>
+  <div class="status" style="margin-top:12px"><span class="dot"></span> Acciones no conectadas todavía</div>
+ </section>
+ <section class="card wide">
+  <div class="icon">⚙️</div><h2>Configuración general</h2><p>Personaliza la identidad de tu bot.</p>
+  <label class="label" for="botname">Nombre del bot</label><input class="field" id="botname" value="NixyraBot">
+  <label class="label" for="language">Idioma del panel</label><select class="field" id="language"><option>Español</option><option>English (próximamente)</option></select>
+  <button class="btn" data-save="settings">Guardar configuración</button>
+ </section>
+</div>
+<div class="note"><strong>Importante:</strong> esta es una maqueta visual para mostrar el diseño. Los botones solo guardan cambios en esta página; todavía no están conectados a Telegram ni modifican el grupo. Para activarlos de verdad hay que publicar la web y conectar un servidor seguro con el bot. Nunca pegues el token del bot en esta página.</div>
+<div class="footer">NixyraBot · Hecho con 💗 para tu comunidad</div>
+</div>
+<script>
+document.querySelectorAll('[data-save]').forEach(b=>b.addEventListener('click',()=>{const key=b.dataset.save;const ids=key==='welcome'?['welcome']:key==='rules'?['rules']:['botname','language'];ids.forEach(id=>localStorage.setItem('nixyra_'+id,document.getElementById(id).value));const old=b.textContent;b.textContent='¡Guardado en esta demo! ✓';setTimeout(()=>b.textContent=old,1700)}));
+document.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',()=>alert('Esta función es una vista de demostración. Aún falta conectar NixyraBot de forma segura.')));
+document.getElementById('preview').addEventListener('click',()=>alert('NixyraPanel está en modo demo. No está conectado a Telegram todavía.'));
+['welcome','rules','botname','language'].forEach(id=>{const v=localStorage.getItem('nixyra_'+id);if(v!==null)document.getElementById(id).value=v});
+</script>
+</body>
+</html>
